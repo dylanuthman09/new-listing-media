@@ -1,8 +1,13 @@
-# vinext-starter
+# New Listing Media
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+The marketing site for New Listing Media, a Houston-area real estate media
+studio offering photography, property films, aerial imagery, virtual staging,
+and practical listing insights.
+
+The site is built with [vinext](https://github.com/cloudflare/vinext), React,
+and Cloudflare's Sites runtime. It is a primarily static, multi-page site with
+responsive layouts, video-backed hero sections, galleries, service pages, an
+order flow, and article pages.
 
 ## Prerequisites
 
@@ -16,16 +21,19 @@ npm run dev
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+This site does not use `wrangler.jsonc`.
 
-## Included Shape
+## Site Areas
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+- `/` â€” primary landing page
+- `/services` â€” services overview and individual service pages
+- `/gallery` and `/portfolio/...` â€” selected work
+- `/about` and `/contact` â€” studio information and contact details
+- `/order` â€” order-a-shoot flow
+- `/insights` â€” listing preparation and media-planning articles
+
+Site content and business details are centralized in `app/site-data.ts`.
+Images and video used by the site live under `public/media/`.
 
 ## Workspace Auth Headers
 
@@ -89,10 +97,11 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 
 - `npm run dev`: start local development
 - `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
+- `npm test`: build the site and verify rendered HTML output
 - `npm run db:generate`: generate Drizzle migrations after schema changes
 
 ## Learn More
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
 - [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+
