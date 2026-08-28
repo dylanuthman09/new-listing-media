@@ -1,4 +1,4 @@
-import { ContactBand, PageHero, SectionHeading, SiteFooter } from "../components";
+import { ContactBand, MediaImage, PageHero, SectionHeading, SiteFooter } from "../components";
 
 export const metadata = {
   title: "About | New Listing Media",
@@ -8,16 +8,14 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <main>
+      <main id="main-content">
         <PageHero
-          eyebrow="About New Listing Media"
           title="The people behind the properties."
           copy="A production-trained team bringing cinematic discipline to real estate media."
-          image="/media/interior-living.jpg"
+          image="/media/interior-living.webp"
         />
         <section className="about-story section-shell section-pad">
           <div>
-            <p className="eyebrow">Our story</p>
             <h2>Experience built beyond the listing.</h2>
           </div>
           <div className="about-story__copy">
@@ -28,18 +26,17 @@ export default function AboutPage() {
         </section>
         <section className="values-section section-shell">
           <SectionHeading
-            eyebrow="Our standards"
             title="Precision without the production drama."
             copy="A smooth experience matters as much as a strong final frame."
           />
           <div className="values-grid">
-            <article><span>01</span><h3>Property first</h3><p>Media should feel true to the space while presenting it at its most considered.</p></article>
-            <article><span>02</span><h3>Prepared and calm</h3><p>A clear process keeps agents, homeowners, and the production team aligned.</p></article>
-            <article><span>03</span><h3>Consistent finish</h3><p>Photography, video, and aerials should look like one visual system.</p></article>
-            <article><span>04</span><h3>Built for deadlines</h3><p>Real estate moves quickly, so communication and delivery expectations stay clear.</p></article>
+            <article><h3>Property first</h3><p>Media should feel true to the space while presenting it at its most considered.</p></article>
+            <article><h3>Prepared and calm</h3><p>A clear process keeps agents, homeowners, and the production team aligned.</p></article>
+            <article><h3>Consistent finish</h3><p>Photography, video, and aerials should look like one visual system.</p></article>
+            <article><h3>Built for deadlines</h3><p>Real estate moves quickly, so communication and delivery expectations stay clear.</p></article>
           </div>
         </section>
-        <section className="image-break section-shell"><img src="/media/aerial-community.jpg" alt="Aerial property media by New Listing Media" /><div><p className="eyebrow eyebrow--light">Houston and surrounding communities</p><h2>Local context, seen from every angle.</h2></div></section>
+        <section className="image-break section-shell"><MediaImage src="/media/aerial-community.webp" alt="Aerial property media by New Listing Media" fill sizes="100vw" loading="lazy" /><div><h2>Local context, seen from every angle.</h2></div></section>
         <ContactBand />
       </main>
       <SiteFooter />

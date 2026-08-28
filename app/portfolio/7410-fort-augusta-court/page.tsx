@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Arrow, ContactBand, ProjectGrid, SiteFooter, SiteHeader } from "../../components";
+import { Arrow, ContactBand, MediaImage, ProjectGrid, SiteFooter, SiteHeader } from "../../components";
 
 export const metadata = {
   title: "7410 Fort Augusta Court | New Listing Media",
@@ -9,25 +9,24 @@ export const metadata = {
 export default function ProjectPage() {
   return (
     <>
-      <main>
+      <main id="main-content">
         <section className="project-hero">
           <SiteHeader overlay />
-          <img src="/media/interior-living.jpg" alt="7410 Fort Augusta Court property media" />
+          <MediaImage src="/media/interior-living.webp" alt="7410 Fort Augusta Court property media" fill sizes="100vw" priority />
           <div className="project-hero__overlay">
             <span className="media-chip">Property Film</span>
             <h1>7410 Fort<br />Augusta Court</h1>
             <p>Houston Area</p>
           </div>
           <div className="project-hero__thumbs">
-            <img src="/media/interior-living.jpg" alt="" />
-            <img src="/media/residential-exterior.jpg" alt="" />
-            <img src="/media/aerial-community.jpg" alt="" />
+            <MediaImage src="/media/interior-living.webp" alt="" width={4000} height={2667} sizes="68px" loading="lazy" />
+            <MediaImage src="/media/residential-exterior.webp" alt="" width={2000} height={1337} sizes="68px" loading="lazy" />
+            <MediaImage src="/media/aerial-community.webp" alt="" width={2000} height={1333} sizes="68px" loading="lazy" />
           </div>
         </section>
 
         <section className="project-summary section-shell section-pad">
           <div>
-            <p className="eyebrow">Project overview</p>
             <h2>A cinematic property tour, built for the listing.</h2>
           </div>
           <div>
@@ -50,15 +49,15 @@ export default function ProjectPage() {
         </section>
 
         <section className="gallery-mosaic section-shell section-pad">
-          <img src="/media/residential-exterior.jpg" alt="Residential property exterior" />
-          <img src="/media/interior-living.jpg" alt="Professionally photographed living space" />
-          <img src="/media/aerial-community.jpg" alt="Aerial property context" />
-          <img src="/media/exterior-twilight.jpg" alt="Twilight exterior" />
+          <MediaImage src="/media/residential-exterior.webp" alt="Residential property exterior" width={2000} height={1337} sizes="(max-width: 780px) 100vw, 65vw" loading="lazy" />
+          <MediaImage src="/media/interior-living.webp" alt="Professionally photographed living space" width={4000} height={2667} sizes="(max-width: 780px) 100vw, 65vw" loading="lazy" />
+          <MediaImage src="/media/aerial-community.webp" alt="Aerial property context" width={2000} height={1333} sizes="(max-width: 780px) 100vw, 65vw" loading="lazy" />
+          <MediaImage src="/media/exterior-twilight.webp" alt="Twilight exterior" width={2000} height={1333} sizes="(max-width: 780px) 100vw, 65vw" loading="lazy" />
         </section>
 
         <section className="section-shell section-pad section-pad--topless">
           <div className="section-heading">
-            <div><p className="eyebrow">Keep exploring</p><h2>Related work.</h2></div>
+            <div><h2>Related work.</h2></div>
             <Link className="text-link" href="/gallery">View full portfolio <Arrow /></Link>
           </div>
           <ProjectGrid limit={3} />

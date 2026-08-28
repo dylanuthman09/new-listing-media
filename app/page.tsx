@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Arrow,
   ContactBand,
+  MediaImage,
   ProjectGrid,
   SectionHeading,
   SiteFooter,
@@ -12,11 +13,11 @@ import { business, faqs, insights, services } from "./site-data";
 export default function Home() {
   return (
     <>
-      <main>
+      <main id="main-content">
         <section className="home-hero">
+          <MediaImage className="home-hero__image" src="/media/hero-aerial.webp" alt="" fill sizes="100vw" priority />
           <SiteHeader overlay />
           <div className="home-hero__content">
-            <p className="eyebrow eyebrow--light">Real estate media · Houston, Texas</p>
             <h1>New Listing<br />Media</h1>
             <p>Photography, video, and aerial imagery crafted to make every listing feel worth seeing.</p>
           </div>
@@ -32,7 +33,6 @@ export default function Home() {
 
         <section className="section-shell section-pad" id="selected-work">
           <SectionHeading
-            eyebrow="Selected work"
             title="Properties, presented with purpose."
             copy="A selection of photography and property films created for listings across the Houston area."
           />
@@ -42,8 +42,8 @@ export default function Home() {
 
         <section className="proof-band section-shell">
           <div className="proof-band__media">
+            <MediaImage className="proof-band__background" src="/media/exterior-twilight.webp" alt="" fill sizes="100vw" loading="lazy" />
             <div className="proof-band__intro">
-              <p className="eyebrow eyebrow--light">Why New Listing Media</p>
               <h2>More than a good shot.</h2>
             </div>
             <div className="proof-band__metrics">
@@ -57,27 +57,24 @@ export default function Home() {
 
         <section className="story-split section-shell section-pad">
           <div className="story-split__copy">
-            <p className="eyebrow">A cinematic difference</p>
             <h2>Production experience, focused on real estate.</h2>
             <p>New Listing Media brings professionally trained photographers and a cinematic eye to every property. The team&apos;s production background includes work connected to <em>Yellowstone</em>, the Grammys, and the MTV Music Awards.</p>
             <p>That experience translates into calm direction, precise framing, and media designed to help realtors, developers, and homeowners stand apart.</p>
             <div className="button-row"><Link className="button button--dark" href="/about">About the Team <Arrow /></Link><Link className="text-link" href="/services">Explore Services <Arrow /></Link></div>
           </div>
-          <div className="story-split__image"><img src="/media/interior-living.jpg" alt="Professionally photographed Houston-area interior" /></div>
+          <div className="story-split__image"><MediaImage src="/media/interior-living.webp" alt="Professionally photographed Houston-area interior" width={4000} height={2667} sizes="(max-width: 780px) 100vw, 50vw" loading="lazy" /></div>
         </section>
 
         <section className="section-shell section-pad section-pad--topless">
           <SectionHeading
-            eyebrow="Service offerings"
             title="One team. Every essential angle."
             copy="Coordinated property media creates a more consistent listing and a simpler production day."
           />
           <div className="service-grid">
             {services.map((service) => (
-              <Link className="service-card" href="/services" key={service.number}>
-                <img src={service.image} alt="" />
+              <Link className="service-card" href="/services" key={service.title}>
+                <MediaImage src={service.image} alt="" width={2000} height={1333} sizes="(max-width: 780px) 100vw, 33vw" loading="lazy" />
                 <div className="service-card__overlay">
-                  <span>{service.number}</span>
                   <div><h3>{service.title}</h3><p>{service.copy}</p></div>
                   <Arrow />
                 </div>
@@ -88,16 +85,15 @@ export default function Home() {
 
         <section className="process-section section-shell section-pad">
           <div className="process-feature">
-            <div className="process-feature__image"><img src="/media/aerial-community.jpg" alt="Aerial view from a New Listing Media property project" /></div>
+            <div className="process-feature__image"><MediaImage src="/media/aerial-community.webp" alt="Aerial view from a New Listing Media property project" width={2000} height={1333} sizes="(max-width: 780px) 100vw, 55vw" loading="lazy" /></div>
             <div className="process-feature__quote">
-              <p className="eyebrow">A seamless experience</p>
               <h2>Built around the way listings actually move.</h2>
               <p>Fast schedules, changing weather, occupied homes, and agent deadlines all shape a media day. New Listing Media keeps the process straightforward from order to delivery.</p>
               <ol>
-                <li><span>01</span>Order your services</li>
-                <li><span>02</span>Confirm timing and access</li>
-                <li><span>03</span>Capture the property</li>
-                <li><span>04</span>Receive finished media</li>
+                <li>Order your services</li>
+                <li>Confirm timing and access</li>
+                <li>Capture the property</li>
+                <li>Receive finished media</li>
               </ol>
             </div>
           </div>
@@ -105,14 +101,13 @@ export default function Home() {
 
         <section className="section-shell section-pad section-pad--topless">
           <SectionHeading
-            eyebrow="Latest insights"
             title="Better-prepared listings start here."
             copy="Practical guidance for planning a smooth shoot and choosing the right media."
           />
           <div className="insight-grid">
             {insights.map((item) => (
               <Link className="insight-card" href={item.href} key={item.title}>
-                <img src={item.image} alt="" />
+                <MediaImage src={item.image} alt="" width={2000} height={1333} sizes="(max-width: 780px) 100vw, 25vw" loading="lazy" />
                 <div><span>{item.date}</span><h3>{item.title}</h3><Arrow /></div>
               </Link>
             ))}
@@ -123,7 +118,6 @@ export default function Home() {
 
         <section className="faq-section section-shell section-pad">
           <div>
-            <p className="eyebrow">Common questions</p>
             <h2>Frequently asked questions.</h2>
             <p>Need something specific? Call <a href={business.phoneHref}>{business.phoneDisplay}</a> or <Link href="/contact">talk with the team</Link>.</p>
           </div>

@@ -1,4 +1,4 @@
-import { Arrow, SiteFooter, SiteHeader } from "../components";
+import { Arrow, MediaImage, SiteFooter, SiteHeader } from "../components";
 import { business } from "../site-data";
 
 export const metadata = {
@@ -9,11 +9,10 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <main>
+      <main id="main-content">
         <SiteHeader />
         <section className="contact-page section-shell">
           <div className="contact-page__intro">
-            <p className="eyebrow">Talk with our team</p>
             <h1>Bring us the next listing.</h1>
             <p>Order through the client portal for the fastest path to scheduling, or contact the team if you need help choosing services.</p>
             <div className="contact-direct">
@@ -22,7 +21,6 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="booking-card">
-            <p className="eyebrow">Ready to schedule?</p>
             <h2>Use the New Listing Media order portal.</h2>
             <p>Choose your services, property, and preferred timing through the existing client system.</p>
             <a className="button button--gold button--large" href={business.orderUrl}>Order a Shoot <Arrow /></a>
@@ -30,7 +28,7 @@ export default function ContactPage() {
             <p className="booking-card__note">Weekend availability is offered. Contact the team to confirm the property address and timing.</p>
           </div>
         </section>
-        <section className="contact-image section-shell"><img src="/media/exterior-twilight.jpg" alt="Twilight property photography by New Listing Media" /></section>
+        <section className="contact-image section-shell"><MediaImage src="/media/exterior-twilight.webp" alt="Twilight property photography by New Listing Media" width={2000} height={1333} sizes="100vw" loading="lazy" /></section>
       </main>
       <SiteFooter />
     </>

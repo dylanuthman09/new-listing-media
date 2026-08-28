@@ -1,5 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
+import type { ComponentProps } from "react";
 import { business, projects } from "./site-data";
+
+export function MediaImage({ alt, ...props }: ComponentProps<typeof Image>) {
+  return <Image {...props} alt={alt} unoptimized={process.env.NODE_ENV !== "production"} />;
+}
 
 export function Arrow({ direction = "right" }: { direction?: "right" | "left" }) {
   return <span aria-hidden="true">{direction === "right" ? "↗" : "↙"}</span>;
@@ -8,9 +14,12 @@ export function Arrow({ direction = "right" }: { direction?: "right" | "left" })
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link className="logo" href="/" aria-label="New Listing Media home">
-      <img
+      <MediaImage
         src={light ? "/media/logo-light.png" : "/media/logo-dark.png"}
         alt="New Listing Media"
+        width={500}
+        height={light ? 182 : 175}
+        priority
       />
     </Link>
   );
@@ -31,7 +40,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           Order a Shoot <Arrow />
         </a>
         <details className="mobile-menu">
-          <summary aria-label="Open navigation"><span></span><span></span></summary>
+          <summary aria-label="Toggle navigation"><span></span><span></span></summary>
           <div className="mobile-menu__panel">
             <div className="mobile-menu__top"><Logo light /><span>Menu</span></div>
             <nav aria-label="Mobile navigation">
@@ -54,18 +63,15 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
 }
 
 export function SectionHeading({
-  eyebrow,
   title,
   copy,
 }: {
-  eyebrow: string;
   title: string;
   copy?: string;
 }) {
   return (
     <div className="section-heading">
       <div>
-        <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
       </div>
       {copy ? <p className="section-heading__copy">{copy}</p> : null}
@@ -82,7 +88,14 @@ export function ProjectGrid({ limit }: { limit?: number }) {
         const content = (
           <>
             <div className="project-card__image">
-              <img src={project.image} alt={`${project.title} portfolio`} />
+              <MediaImage
+                src={project.image}
+                alt={`${project.title} portfolio`}
+                width={2000}
+                height={1333}
+                sizes="(max-width: 780px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                loading="lazy"
+              />
               <span className="media-chip">{project.category}</span>
               <span className="project-card__view">View Project <Arrow /></span>
             </div>
@@ -106,8 +119,15 @@ export function ContactBand() {
   return (
     <section className="contact-band section-shell">
       <div className="contact-band__image">
+        <MediaImage
+          className="contact-band__background"
+          src="/media/residential-exterior.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+        />
         <div>
-          <p className="eyebrow eyebrow--light">Have a property in mind?</p>
           <h2>Let&apos;s make the first impression count.</h2>
           <p>Tell us where and when. We&apos;ll help you choose the right media for the listing.</p>
         </div>
@@ -124,6 +144,14 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__image">
+        <MediaImage
+          className="site-footer__background"
+          src="/media/aerial-estate.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+        />
         <div className="site-footer__lead">
           <Logo light />
           <h2>Stay ready for the next listing.</h2>
@@ -146,21 +174,19 @@ export function SiteFooter() {
 }
 
 export function PageHero({
-  eyebrow,
   title,
   copy,
   image,
 }: {
-  eyebrow: string;
   title: string;
   copy?: string;
   image: string;
 }) {
   return (
-    <section className="page-hero" style={{ backgroundImage: `linear-gradient(180deg, rgba(12,16,13,.18), rgba(12,16,13,.62)), url("${image}")` }}>
+    <section className="page-hero">
+      <MediaImage className="page-hero__image" src={image} alt="" fill sizes="100vw" priority />
       <SiteHeader overlay />
       <div className="page-hero__content">
-        <p className="eyebrow eyebrow--light">{eyebrow}</p>
         <h1>{title}</h1>
         {copy ? <p>{copy}</p> : null}
       </div>
