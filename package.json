@@ -7,10 +7,11 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
+    "dev": "vinext dev",
     "build": "vinext build && node scripts/prepare-cloudflare-pages.mjs",
-    "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
-    "test": "npm run build && node --test tests/cloudflare-pages-output.test.mjs",
+    "start": "vinext start",
+    "test": "pnpm run build && pnpm run test:smoke",
+    "test:smoke": "node --test tests/site-smoke.test.mjs tests/cloudflare-pages-output.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
