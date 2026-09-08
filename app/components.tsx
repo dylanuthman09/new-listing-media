@@ -16,38 +16,35 @@ export function Logo({ light = false }: { light?: boolean }) {
   );
 }
 
-export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
+export function SiteHeader({
+  overlay = false,
+  cinematic = false,
+}: {
+  overlay?: boolean;
+  cinematic?: boolean;
+}) {
   return (
-    <header className={`site-header ${overlay ? "site-header--overlay" : ""}`}>
+    <header className={`site-header ${overlay ? "site-header--overlay" : ""} ${cinematic ? "site-header--cinematic" : ""}`}>
       <Logo light={overlay} />
       <nav className="desktop-nav" aria-label="Primary navigation">
+        {cinematic ? <Link href="/">Home</Link> : null}
         <Link href="/gallery">Portfolio</Link>
         <Link href="/services">Services</Link>
-        <Link href="/about">About</Link>
-        <Link href="/insights">Insights</Link>
+        {cinematic ? <a href={business.orderUrl}>Book Now</a> : null}
+        {cinematic ? null : <Link href="/about">About</Link>}
+        {cinematic ? <Link href="/contact">Contact</Link> : <Link href="/insights">Insights</Link>}
       </nav>
       <div className="header-actions">
-        <a className="text-link header-order" href={business.orderUrl}>
-          Order a Shoot <Arrow />
-        </a>
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation"><span></span><span></span></summary>
-          <div className="mobile-menu__panel">
-            <div className="mobile-menu__top"><Logo light /><span>Menu</span></div>
-            <nav aria-label="Mobile navigation">
-              <Link href="/">Home</Link>
-              <Link href="/gallery">Portfolio</Link>
-              <Link href="/services">Services</Link>
-              <Link href="/about">About</Link>
-              <Link href="/insights">Insights</Link>
-              <Link href="/contact">Contact</Link>
-            </nav>
-            <div className="mobile-menu__footer">
-              <a href={business.orderUrl} className="button button--gold">Order a Shoot</a>
-              <a href={business.phoneHref}>{business.phoneDisplay}</a>
-            </div>
+        {cinematic ? (
+          <div className="header-socials" aria-label="Social media">
+            <a href={business.instagram} aria-label="Instagram"><span aria-hidden="true">◎</span></a>
+            <a href={business.facebook} aria-label="Facebook"><span aria-hidden="true">f</span></a>
           </div>
-        </details>
+        ) : (
+          <a className="text-link header-order" href={business.orderUrl}>
+            Order a Shoot <Arrow />
+          </a>
+        )}
       </div>
     </header>
   );
@@ -132,7 +129,7 @@ export function SiteFooter() {
         </div>
         <div className="site-footer__links">
           <div><p className="footer-label">Pages</p><Link href="/">Home</Link><Link href="/about">About</Link><Link href="/gallery">Portfolio</Link><Link href="/insights">Insights</Link></div>
-          <div><p className="footer-label">Services</p><Link href="/services">Photography</Link><Link href="/services">Videography</Link><Link href="/services">Aerial</Link><a href={business.orderUrl}>Order</a></div>
+          <div><p className="footer-label">Services</p><Link href="/photography">Photography</Link><Link href="/videography">Videography</Link><Link href="/services/aerial-photography-film">Aerial</Link><a href={business.orderUrl}>Order</a></div>
           <div><p className="footer-label">Contact</p><a href={business.phoneHref}>{business.phoneDisplay}</a><a href={`mailto:${business.email}`}>Email Us</a><a href={business.instagram}>Instagram</a><a href={business.facebook}>Facebook</a></div>
         </div>
         <div className="site-footer__bottom">

@@ -30,7 +30,6 @@ export default function ContactPage() {
             <p className="booking-card__note">Weekend availability is offered. Contact the team to confirm the property address and timing.</p>
           </div>
         </section>
-        <section className="contact-image section-shell"><img src="/media/exterior-twilight.jpg" alt="Twilight property photography by New Listing Media" /></section>
       </main>
       <SiteFooter />
     </>

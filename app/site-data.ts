@@ -3,7 +3,7 @@ export const business = {
   phoneDisplay: "(713) 702-2682",
   phoneHref: "tel:+17137022682",
   email: "zach_uthman@newlistingmediatx.com",
-  orderUrl: "https://media.newlistingmediatx.com/order",
+  orderUrl: "/order",
   loginUrl: "https://media.newlistingmediatx.com/portal",
   instagram: "https://www.instagram.com/newlistingmediatx",
   facebook: "https://www.facebook.com/share/1CkZS6T5zS/",
@@ -43,18 +43,18 @@ export const projects = [
     video: "https://www.youtube.com/embed/AN8xz3IhWBw",
   },
   {
-    title: "Residential Light Study",
-    category: "Photography",
+    title: "Aerial Property Reveal",
+    category: "Drone Film",
     location: "Greater Houston",
-    image: "/media/aerial-community.jpg",
-    href: "/gallery",
+    image: "/media/aerial-property-reveal-poster.jpg",
+    href: "/gallery#aerial-work",
   },
   {
-    title: "Twilight Exterior",
-    category: "Photography + Aerial",
+    title: "Twilight Exteriors",
+    category: "Twilight Photography",
     location: "Greater Houston",
-    image: "/media/hero-aerial.jpg",
-    href: "/gallery",
+    image: "/media/twilight-07.jpg",
+    href: "/gallery#twilight-work",
   },
 ];
 
@@ -63,19 +63,81 @@ export const services = [
     number: "01",
     title: "Real Estate Photography",
     copy: "Carefully lit, professionally finished listing photography that presents every room with clarity, natural color, and architectural precision.",
-    image: "/media/interior-living.jpg",
+    image: "/media/twilight-05.jpg",
+    href: "/services/real-estate-photography",
   },
   {
     number: "02",
     title: "Real Estate Videography",
     copy: "Cinematic property films and virtual tours designed to build attention, communicate flow, and separate listings from the competition.",
     image: "/media/residential-exterior.jpg",
+    href: "/services",
   },
   {
     number: "03",
-    title: "Aerial Photography",
-    copy: "Elevated views that add scale, context, and a stronger sense of place using professional drone imaging.",
-    image: "/media/aerial-estate.jpg",
+    title: "Aerial Photography & Film",
+    copy: "Elevated stills and cinematic drone movement that add scale, context, and a stronger sense of place.",
+    image: "/media/aerial-land-showcase-poster.jpg",
+    href: "/services/aerial-photography-film",
+  },
+];
+
+export const serviceRates = {
+  aerials: [
+    { price: "$99", label: "Aerials for a house when purchased with photography" },
+    { price: "$200", label: "Aerial lot shoot, 1–5 acres" },
+    { price: "$250", label: "Aerial lot shoot, 6–10 acres" },
+    { price: "$300", label: "Aerial lot shoot, more than 10 acres" },
+  ],
+  videos: [
+    { price: "$199", label: "Social-media reel" },
+    { price: "$350", label: "4K walkthrough video" },
+    { price: "$100", label: "Talking-head add-on" },
+  ],
+  additional: [
+    { price: "$40 / image", label: "Virtual twilight" },
+    { price: "$139", label: "Real twilight sitting" },
+    { price: "$30 / image", label: "Virtual staging" },
+    { price: "$149", label: "3D Zillow tour/floor plan with photography" },
+    { price: "$199", label: "Copy of 3D Zillow Tour/Floorplan" },
+  ],
+};
+
+export const servicePackages = [
+  {
+    name: "Base Package",
+    price: "$400",
+    features: [
+      { label: "Unlimited HDR photographs" },
+      { label: "3D virtual tour", href: "https://www.youtube.com/watch?v=i8mLVgH2GWg&t=30s" },
+      { label: "One virtual twilight" },
+      { label: "Listing website" },
+    ],
+  },
+  {
+    name: "Silver Package",
+    price: "$550",
+    features: [
+      { label: "Unlimited HDR photographs" },
+      { label: "3D floor plan", href: "https://www.youtube.com/watch?v=i8mLVgH2GWg&t=30s" },
+      { label: "Aerials" },
+      { label: "Two virtual twilights" },
+      { label: "Three virtually staged images" },
+      { label: "Property website" },
+    ],
+  },
+  {
+    name: "Gold Package",
+    price: "$800",
+    features: [
+      { label: "Unlimited HDR photographs" },
+      { label: "3D floor plan" },
+      { label: "Aerials" },
+      { label: "4K walkthrough video" },
+      { label: "Two virtual twilights" },
+      { label: "Three virtually staged photographs" },
+      { label: "Property website" },
+    ],
   },
 ];
 
@@ -112,19 +174,19 @@ export const insights = [
   {
     title: "When Aerial Images Add the Most Value",
     date: "Media Planning",
-    image: "/media/aerial-community.jpg",
-    href: "/contact",
+    image: "/media/insight-aerial-07.jpg",
+    href: "/insights/when-aerial-images-add-most-value",
   },
   {
-    title: "Photography or Property Film?",
+    title: "Why a Professional Real Estate Photographer Will Make You More in Less Time",
     date: "Agent Resources",
     image: "/media/residential-exterior.jpg",
-    href: "/services",
+    href: "/insights/why-a-professional-real-estate-photographer-will-make-you-more-in-less-time",
   },
   {
-    title: "The Case for Twilight Exteriors",
-    date: "Creative Direction",
-    image: "/media/exterior-twilight.jpg",
-    href: "/gallery",
+    title: "How Twilight Photography Can Make Your Listings Stand Out",
+    date: "Twilight Photography",
+    image: "/media/twilight-01.jpg",
+    href: "/insights/how-twilight-photography-can-make-your-listings-stand-out",
   },
 ];

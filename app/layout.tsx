@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og.png",
+        url: "/og-video-hero.png",
         width: 1728,
         height: 909,
         alt: "New Listing Media — Make every listing feel worth seeing.",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "New Listing Media",
     description:
       "Photography, video, and aerial imagery crafted to make every listing feel worth seeing.",
-    images: ["/og.png"],
+    images: ["/og-video-hero.png"],
   },
 };
 

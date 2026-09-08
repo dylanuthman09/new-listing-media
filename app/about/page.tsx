@@ -1,4 +1,4 @@
-import { ContactBand, PageHero, SectionHeading, SiteFooter } from "../components";
+import { PageHero, SectionHeading, SiteFooter } from "../components";
 
 export const metadata = {
   title: "About | New Listing Media",
@@ -39,8 +39,6 @@ export default function AboutPage() {
             <article><span>04</span><h3>Built for deadlines</h3><p>Real estate moves quickly, so communication and delivery expectations stay clear.</p></article>
           </div>
         </section>
-        <section className="image-break section-shell"><img src="/media/aerial-community.jpg" alt="Aerial property media by New Listing Media" /><div><p className="eyebrow eyebrow--light">Houston and surrounding communities</p><h2>Local context, seen from every angle.</h2></div></section>
-        <ContactBand />
       </main>
       <SiteFooter />
     </>

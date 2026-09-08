@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { Arrow, ContactBand, PageHero, SectionHeading, SiteFooter } from "../components";
-import { services } from "../site-data";
+import { SiteFooter, SiteHeader } from "../components";
+import { servicePackages, serviceRates } from "../site-data";
 
 export const metadata = {
   title: "Services | New Listing Media",
@@ -11,42 +10,45 @@ export default function ServicesPage() {
   return (
     <>
       <main>
-        <PageHero
-          eyebrow="Our services"
-          title="One property. A complete visual package."
-          copy="Professional photography, cinematic video, and aerial imagery produced by one experienced team."
-          image="/media/aerial-estate.jpg"
-        />
-        <section className="section-shell section-pad">
-          <SectionHeading
-            eyebrow="Core offerings"
-            title="Media designed to move with the listing."
-            copy="Choose a focused service or coordinate multiple formats for a consistent launch."
-          />
-          <div className="service-detail-list">
-            {services.map((service) => (
-              <article className="service-detail" key={service.number}>
-                <div className="service-detail__number">{service.number}</div>
-                <div className="service-detail__copy"><h2>{service.title}</h2><p>{service.copy}</p><a href="/contact" className="text-link">Ask about this service <Arrow /></a></div>
-                <img src={service.image} alt="" />
+        <SiteHeader />
+        <section className="section-shell section-pad pricing-section" id="pricing">
+          <div className="services-heading">
+            <div>
+              <p className="eyebrow">Services &amp; packages</p>
+              <h1>Choose exactly what your listing needs.</h1>
+            </div>
+            <p className="section-heading__copy">Focused services and complete packages for photography, video, aerial coverage, and property marketing.</p>
+          </div>
+          <div className="pricing-split">
+            {([
+              ["Aerials", serviceRates.aerials],
+              ["Videos", serviceRates.videos],
+            ] as const).map(([title, items]) => (
+              <article className="rate-card" key={title}>
+                <p className="eyebrow">{title}</p>
+                <div className="rate-list">
+                  {items.map((item) => <div className="rate-item rate-item--service" key={item.label}><span>{item.label}</span></div>)}
+                </div>
               </article>
             ))}
           </div>
-        </section>
-        <section className="dark-section section-shell">
-          <div>
-            <p className="eyebrow eyebrow--light">The process</p>
-            <h2>Simple from order to delivery.</h2>
+          <div className="package-grid">
+            {servicePackages.map((pkg, index) => (
+              <article className={`package-card ${index === 1 ? "package-card--featured" : ""}`} key={pkg.name}>
+                <div className="package-card__top"><p className="eyebrow">{pkg.name}</p></div>
+                <ul>
+                  {pkg.features.map((feature) => <li key={feature.label}>{feature.href ? <a href={feature.href} target="_blank" rel="noreferrer">{feature.label} ↗</a> : feature.label}</li>)}
+                </ul>
+              </article>
+            ))}
           </div>
-          <div className="process-grid">
-            <article><span>01</span><h3>Order</h3><p>Select services through the client ordering portal.</p></article>
-            <article><span>02</span><h3>Confirm</h3><p>Coordinate access, timing, and the needs of the listing.</p></article>
-            <article><span>03</span><h3>Capture</h3><p>The team photographs and films with a consistent visual approach.</p></article>
-            <article><span>04</span><h3>Deliver</h3><p>Receive professionally processed media ready for your marketing.</p></article>
-          </div>
-          <Link className="button button--gold" href="/contact">Plan Your Shoot <Arrow /></Link>
+          <article className="rate-card rate-card--additional">
+            <p className="eyebrow">Additional services</p>
+            <div className="rate-list rate-list--additional">
+              {serviceRates.additional.map((item) => <div className="rate-item rate-item--service" key={item.label}><span>{item.label}</span></div>)}
+            </div>
+          </article>
         </section>
-        <ContactBand />
       </main>
       <SiteFooter />
     </>
